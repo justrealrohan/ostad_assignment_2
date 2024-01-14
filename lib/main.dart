@@ -128,6 +128,15 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _showCheckoutSnackbar() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: const Text('Congratulations! Your order has been placed.'),
+        duration: const Duration(seconds: 3),
+      ),
+    );
+  }
+
   Widget _buildItem(
       int itemNumber,
       String imagePath,
@@ -354,7 +363,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  print('CHECK OUT pressed');
+                  _showCheckoutSnackbar();
                 },
                 style: ElevatedButton.styleFrom(
                   elevation: 10,
